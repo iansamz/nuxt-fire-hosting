@@ -19,4 +19,6 @@ $ yarn start
 $ yarn generate
 ```
 
+Based on the tutorial by KiritchoukC (https://dev.to/kiritchoukc/deploy-nuxt-on-firebase-4ad8)
+
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
