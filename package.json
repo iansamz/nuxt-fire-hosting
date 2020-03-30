@@ -2,7 +2,7 @@
   "name": "nuxt-fire-hosting",
   "version": "1.0.0",
   "description": "Nuxt Firebase Hosting",
-  "author": "Ian Mungai",
+  "author": "Ian Sam Mungai",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon src/server/index.js --watch server",
@@ -18,7 +18,8 @@
     "copy:nuxt": "mkdir public/_nuxt && cp -r functions/.nuxt/dist/* public/_nuxt",
     "copy:static": "cp -r src/static/* public",
     "start:firebase": "firebase serve --only functions,hosting",
-    "deploy": "firebase deploy --only functions,hosting"
+    "deploy": "firebase deploy --only functions,hosting",
+    "firebase-deploy": "yarn:build && yarn deploy"
   },
   "dependencies": {
     "nuxt": "^2.0.0",
