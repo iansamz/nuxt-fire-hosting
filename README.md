@@ -20,3 +20,5 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+Follow the tutorial for setup, check out [Nuxt Fire Hosting](https://dev.to/kiritchoukc/deploy-nuxt-on-firebase-4ad8).
