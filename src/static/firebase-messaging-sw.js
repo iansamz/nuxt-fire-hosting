@@ -1,38 +1,26 @@
-const options = {
-  firebaseVersion: "7.12.0",
-  config: {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: "",
-    measurementId: ""
-  },
-  onFirebaseHosting: false
-};
-const version = options.firebaseVersion;
-const onFirebaseHosting = options.onFirebaseHosting;
+const options = {"firebaseVersion":"7.12.0","config":{"apiKey":"","authDomain":"","databaseURL":"","projectId":"","storageBucket":"","messagingSenderId":"","appId":"","measurementId":""},"onFirebaseHosting":false}
+const version = options.firebaseVersion
+const onFirebaseHosting = options.onFirebaseHosting
 
 if (onFirebaseHosting) {
   // Only works on Firebase hosting!
-  importScripts("/__/firebase/" + version + "/firebase-app.js");
-  importScripts("/__/firebase/" + version + "/firebase-messaging.js");
-  importScripts("/__/firebase/init.js");
-} else {
+  importScripts('/__/firebase/' + version + '/firebase-app.js')
+  importScripts('/__/firebase/' + version + '/firebase-messaging.js')
+  importScripts('/__/firebase/init.js')
+}
+else {
   importScripts(
-    "https://www.gstatic.com/firebasejs/" + version + "/firebase-app.js"
-  );
+    'https://www.gstatic.com/firebasejs/' + version + '/firebase-app.js'
+  )
   importScripts(
-    "https://www.gstatic.com/firebasejs/" + version + "/firebase-messaging.js"
-  );
-  firebase.initializeApp(options.config);
+    'https://www.gstatic.com/firebasejs/' + version + '/firebase-messaging.js'
+  )
+  firebase.initializeApp(options.config)
 }
 
 // Retrieve an instance of Firebase Messaging so that it can handle background
 // messages.
-const messaging = firebase.messaging();
+const messaging = firebase.messaging()
 
 messaging.setBackgroundMessageHandler(function(payload) {
   console.info("SW received the message: ", payload);
@@ -54,18 +42,18 @@ messaging.setBackgroundMessageHandler(function(payload) {
   return self.registration.showNotification(
     notificationTitle,
     notificationOptions
-  );
-});
+  )
+})
 
-self.addEventListener("notificationclick", function(e) {
-  const notification = e.notification;
+self.addEventListener('notificationclick', function(e) {
+  const notification = e.notification
   // MARK 1 -> always takes first item
-  const clickAction = notification.actions[0].action;
-  const action = e.action;
-  if (action === "close") {
-    notification.close();
+  const clickAction = notification.actions[0].action
+  const action = e.action
+  if (action === 'close') {
+    notification.close()
   } else {
-    clients.openWindow(clickAction);
-    notification.close();
+    clients.openWindow(clickAction)
+    notification.close()
   }
-});
+})
